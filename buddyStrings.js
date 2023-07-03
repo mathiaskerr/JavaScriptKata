@@ -25,12 +25,32 @@
 //  @param {string} goal
 //  @return {boolean}
 
- 
+
+
 var buddyStrings = function(s, goal) {
-    let result; 
-    s.split("").reverse().join("") === goal ? result = true : result = false ;  
-    console.log(result)
+    let result = false;
+    let newS= s.split("");
+   
+
+ 
+    for(let i = 0 ; i < s.length; i ++){
+        temp = newS[i]
+        for(let j = 0 ; j < s.length -1 ; j ++){
+            if(i != j){
+            newS[i] = newS[j]
+            newS[j] = temp
+           
+      
+            newS.join("") === goal ? result = true : result = false ;  
+            if (result === true) {
+                console.log(result)
+                return result};
+            newS = s.split("")
+            }
+        }
+    }
+    console.log(result);
     return result
 };
 
-buddyStrings("aa","aa")
+buddyStrings("a","na")
